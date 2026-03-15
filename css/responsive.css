@@ -1,0 +1,58 @@
+/* ========================================
+   TABLE WORTH V2 — RESPONSIVE
+   ======================================== */
+
+@media (max-width: 1024px) {
+  .hero-wrapper { grid-template-columns: 1fr; gap: 40px; }
+  .hero-stats-col { flex-direction: row; justify-content: center; gap: 16px; }
+  .stat-card { flex: 1; max-width: 200px; padding: 20px; }
+  .stat-number { font-size: 32px; }
+
+  .about-layout { grid-template-columns: 1fr; gap: 40px; }
+  .floating-images { height: 280px; display: flex; gap: 20px; }
+  .float-card { position: relative; }
+  .float-card-1 { width: 220px; }
+
+  .philosophy-grid { grid-template-columns: 1fr; }
+  .services-grid { grid-template-columns: repeat(2, 1fr); }
+  .why-layout { grid-template-columns: 1fr; }
+  .why-info-panel { position: static; }
+  .iso-cards { grid-template-columns: 1fr; }
+  .contact-layout { grid-template-columns: 1fr; }
+  .mm-body { grid-template-columns: 1fr; }
+  .footer-grid { grid-template-columns: 1fr 1fr; gap: 32px; }
+  .testi-pillars { grid-template-columns: 1fr; gap: 24px; }
+}
+
+@media (max-width: 768px) {
+  :root { --section-pad: 80px; }
+
+  .nav-menu { display: none; }
+  .nav-toggle { display: block; z-index: 10001; }
+
+  #hero { padding: 100px 20px 60px; }
+  .hero-title { font-size: 36px; }
+  .hero-desc { font-size: 15px; }
+  .hero-stats-col { flex-wrap: wrap; }
+  .hero-scroll-cue { display: none; }
+
+  .services-grid { grid-template-columns: 1fr; }
+  .form-row { grid-template-columns: 1fr; }
+  .footer-grid { grid-template-columns: 1fr; }
+  .footer-bottom { flex-direction: column; gap: 8px; text-align: center; }
+
+  .menu-mosaic { grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); }
+  .float-card-2 { display: none; }
+  .floating-images { height: auto; }
+}
+
+@media (max-width: 480px) {
+  :root { --section-pad: 60px; }
+  .hero-title { font-size: 30px; }
+  .hero-actions { flex-direction: column; }
+  .btn-fill, .btn-outline { width: 100%; justify-content: center; }
+  .hero-stats-col { flex-direction: column; align-items: center; }
+  .stat-card { width: 100%; max-width: none; }
+  .about-pills { flex-direction: column; }
+  .section-heading { font-size: 26px; }
+}

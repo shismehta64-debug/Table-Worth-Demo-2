@@ -1,0 +1,201 @@
+/* ========================================
+   TABLE WORTH V2 — BASE & RESET
+   ======================================== */
+@import url('./variables.css');
+
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+
+body {
+  font-family: var(--font-body);
+  color: var(--text-primary);
+  background: var(--bg);
+  line-height: 1.7;
+  overflow-x: hidden;
+  cursor: none;
+}
+
+@media (max-width: 768px) { body { cursor: auto; } }
+
+a { color: var(--primary); text-decoration: none; transition: color var(--dur) var(--ease); }
+a:hover { color: var(--primary-light); }
+
+img { max-width: 100%; height: auto; display: block; }
+
+.container { max-width: var(--container); margin: 0 auto; padding: 0 24px; }
+
+.section { padding: var(--section-pad) 0; position: relative; }
+.section-tinted { background: var(--bg-tinted); }
+.section-warm { background: var(--bg-warm); }
+
+/* ========== CUSTOM CURSOR ========== */
+.cursor-glow {
+  position: fixed; top: 0; left: 0;
+  width: 36px; height: 36px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(194,65,12,0.25) 0%, transparent 70%);
+  pointer-events: none; z-index: 99999;
+  transform: translate(-50%, -50%);
+  transition: width 0.3s var(--ease-out), height 0.3s var(--ease-out), opacity 0.3s;
+  mix-blend-mode: multiply;
+}
+.cursor-glow.hover {
+  width: 60px; height: 60px;
+  background: radial-gradient(circle, rgba(194,65,12,0.35) 0%, transparent 70%);
+}
+
+.cursor-trail {
+  position: fixed; top: 0; left: 0;
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: var(--primary);
+  pointer-events: none; z-index: 99999;
+  transform: translate(-50%, -50%);
+  transition: opacity 0.3s;
+}
+
+@media (max-width: 768px) {
+  .cursor-glow, .cursor-trail { display: none !important; }
+}
+
+/* ========== SCROLL PROGRESS ========== */
+#scroll-progress {
+  position: fixed; top: 0; left: 0;
+  height: 3px; width: 0;
+  background: linear-gradient(90deg, var(--primary), var(--primary-light));
+  z-index: 100000;
+  transition: width 0.1s linear;
+}
+
+/* ========== PRELOADER ========== */
+#preloader {
+  position: fixed; inset: 0; z-index: 999999;
+  background: var(--white);
+  display: flex; align-items: center; justify-content: center;
+  transition: opacity 0.6s var(--ease), visibility 0.6s;
+}
+#preloader.hidden { opacity: 0; visibility: hidden; pointer-events: none; }
+
+.preloader-inner { 
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center; 
+}
+.preloader-logo-img {
+  max-height: 80px; width: auto;
+  display: block;
+  margin: 0 auto;
+  animation: preloaderPulse 1.5s ease-in-out infinite;
+}
+.preloader-bar {
+  width: 200px; height: 3px; background: var(--border);
+  border-radius: 4px; margin: 24px 0 16px; overflow: hidden;
+}
+.preloader-bar-fill {
+  height: 100%; width: 0;
+  background: linear-gradient(90deg, var(--primary), var(--primary-light));
+  border-radius: 4px;
+  animation: preloaderFill 2s var(--ease-out) forwards;
+}
+.preloader-text {
+  font-family: var(--font-display); font-size: 14px;
+  color: var(--text-muted); letter-spacing: 2px;
+}
+
+@keyframes preloaderPulse {
+  0%, 100% { opacity: 0.6; transform: scale(0.95); }
+  50% { opacity: 1; transform: scale(1); }
+}
+@keyframes preloaderFill {
+  0% { width: 0; }
+  100% { width: 100%; }
+}
+
+/* ========== NAVBAR ========== */
+#navbar {
+  position: fixed; top: 0; left: 0; width: 100%; z-index: 10000;
+  padding: 16px 0;
+  background: transparent;
+  transition: all 0.4s var(--ease);
+}
+#navbar.scrolled {
+  background: rgba(254,252,249,0.92);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  box-shadow: var(--shadow-sm);
+  padding: 10px 0;
+}
+
+.nav-container {
+  max-width: var(--container);
+  margin: 0 auto; padding: 0 24px;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.nav-logo-img { max-height: 40px; width: auto; transition: opacity var(--dur); }
+.nav-menu { display: flex; align-items: center; gap: 32px; }
+.nav-link {
+  font-size: 14px; font-weight: 500;
+  color: var(--text-secondary); letter-spacing: 0.3px;
+  position: relative; padding: 4px 0;
+  transition: color var(--dur);
+}
+.nav-link::after {
+  content: ''; position: absolute;
+  bottom: -2px; left: 0; width: 0; height: 2px;
+  background: var(--primary);
+  transition: width var(--dur) var(--ease-out);
+}
+.nav-link:hover, .nav-link.active { color: var(--primary); }
+.nav-link:hover::after, .nav-link.active::after { width: 100%; }
+
+.nav-link-cta {
+  background: var(--primary); color: var(--text-on-primary) !important;
+  padding: 10px 24px; border-radius: var(--r-full);
+  font-weight: 600;
+  transition: background var(--dur), transform var(--dur);
+}
+.nav-link-cta::after { display: none; }
+.nav-link-cta:hover {
+  background: var(--primary-light);
+  color: var(--text-on-primary) !important;
+  transform: translateY(-2px);
+}
+
+.nav-toggle {
+  display: none; background: none; border: none;
+  width: 28px; height: 20px; position: relative; cursor: pointer;
+}
+.nav-toggle span {
+  position: absolute; left: 0; width: 100%; height: 2px;
+  background: var(--text-primary); border-radius: 2px;
+  transition: all 0.3s var(--ease);
+}
+.nav-toggle span:nth-child(1) { top: 0; }
+.nav-toggle span:nth-child(2) { top: 50%; transform: translateY(-50%); }
+.nav-toggle span:nth-child(3) { bottom: 0; }
+.nav-toggle.open span:nth-child(1) { top: 50%; transform: translateY(-50%) rotate(45deg); }
+.nav-toggle.open span:nth-child(2) { opacity: 0; }
+.nav-toggle.open span:nth-child(3) { bottom: 50%; transform: translateY(50%) rotate(-45deg); }
+
+/* ========== MOBILE OVERLAY ========== */
+.mobile-overlay {
+  position: fixed; inset: 0; z-index: 9999;
+  background: rgba(254,252,249,0.97);
+  backdrop-filter: blur(20px);
+  display: flex; align-items: center; justify-content: center;
+  opacity: 0; visibility: hidden; pointer-events: none;
+  transition: all 0.5s var(--ease);
+}
+.mobile-overlay.open { opacity: 1; visibility: visible; pointer-events: all; }
+.mobile-overlay-content { text-align: center; display: flex; flex-direction: column; gap: 24px; }
+.mobile-link {
+  font-family: var(--font-display);
+  font-size: 32px; font-weight: 500;
+  color: var(--text-primary);
+  transition: color var(--dur), transform var(--dur);
+}
+.mobile-link:hover { color: var(--primary); transform: translateX(8px); }
+.mobile-link-cta { color: var(--primary); }
