@@ -41,13 +41,13 @@
     <nav class="navbar">
         <div class="nav-container">
             <a href="#" class="logo">
-                <img src="assets/TAble-Worth.png" alt="Table Worth">
+                <img src="assets/TAble-Worth.png" alt="Table Worth Logo">
+                <span class="logo-title">Table Worth</span>
             </a>
             <div class="nav-links">
                 <a href="#about" class="nav-item">Our Story</a>
                 <a href="#services" class="nav-item">Services</a>
-                <a href="#menu" class="nav-item">Culinary Showcase</a>
-                <a href="#contact" class="nav-contact-btn">Get in Touch</a>
+                <a href="#contact" class="nav-contact-btn">Contact Us Now</a>
             </div>
             <button class="menu-toggle" aria-label="Toggle Menu">
                 <span></span>
@@ -60,27 +60,26 @@
         <!-- Hero Section -->
         <section class="hero-v3" id="home">
             <div class="hero-full-bg">
-                <img src="assets/Pictures/hero_catering_wide.png" alt="Indian Catering Experience">
+                <img src="assets/Pictures/hospitality_hero_serving.png" alt="Hospitality Serving Experience">
                 <div class="hero-overlay-dark"></div>
             </div>
 
             <div class="container">
                 <div class="hero-content-v3">
-                    <span class="hero-tag">Established 1994 &nbsp;·&nbsp; Premium Catering</span>
+                    <span class="hero-tag">Established 1994 &nbsp;·&nbsp; Premium Hospitality</span>
 
                     <h1 class="hero-main-title">
-                        Crafting <span class="italic">Exceptional</span><br>
-                        Hospitality<br>
-                        <span class="accent-text italic">Experiences</span>
+                        True <span class="italic">Hospitality</span><br>
+                        Beyond the<br>
+                        <span class="accent-text italic">Plate</span>
                     </h1>
 
                     <p class="hero-subline">
-                        Three decades of culinary mastery and service excellence.<br>
-                        We don't just serve food — we create lasting memories.
+                        Because catering is about more than just food. We deliver warmth, meticulous service, and a truly unforgettable guest experience.
                     </p>
 
                     <div class="hero-v3-actions">
-                        <a href="#about" class="btn-premium-v3">Discover Our Story</a>
+                        <a href="#contact" class="btn-premium-v3">Contact Us Now</a>
                         <div class="hero-v3-badge">
                             <span class="badge-text">30+ Years of Excellence</span>
                             <span class="badge-text" style="color:var(--accent-gold); margin-top:4px;">Trusted by 500+ Clients</span>
@@ -106,7 +105,7 @@
                         </div>
                         <div class="about-metrics">
                             <div class="metric">
-                                <span class="m-num">600+</span>
+                                <span class="m-num">900+</span>
                                 <span class="m-label">Trained Professionals</span>
                             </div>
                             <div class="metric">
@@ -119,6 +118,9 @@
                         <div class="visual-gallery">
                             <div class="v-card v-1">
                                 <img src="assets/Pictures/about_catering_team.png" alt="Catering Team">
+                            </div>
+                            <div class="v-card v-2">
+                                <img src="assets/Pictures/catering-2.png" alt="Chefs Plating Dishes">
                             </div>
                             <div class="v-experience">
                                 <span class="exp-num">30</span>
@@ -232,7 +234,8 @@
                             <div class="s-v2-index">07</div>
                             <div class="s-v2-content">
                                 <h3>Cloud Kitchen</h3>
-                                <p>Serving 4000+ meals per day from our cloud kitchen to industries and Pharma companies, supporting their employees with 24/7 operations.</p>
+                                <p>Serving 4000+ meals per day from our cloud kitchen to industries and Pharma
+                                    companies, supporting their employees with 24/7 operations.</p>
                             </div>
                         </div>
                     </div>
@@ -331,59 +334,46 @@
                 </div>
             </section>
 
-            <!-- Culinary Showcase Section -->
-            <section id="menu" class="menu-v2">
+            <!-- Contact Us Section -->
+            <section id="contact" class="contact-section">
                 <div class="container">
-                    <div class="menu-v2-intro">
-                        <h2 class="section-heading">Culinary Artistry</h2>
-                        <p class="section-desc">A celebration of India's finest culinary traditions — crafted with passion, served with pride.</p>
+                    <div class="section-header">
+                        <h2 class="section-heading" style="color:var(--white);">Get In Touch</h2>
+                        <p class="section-desc" style="color:rgba(255,255,255,0.7);">Partner with Table Worth for world-class hospitality and catering services. Fill in the details below and we will contact you shortly.</p>
                     </div>
-                    <div class="menu-v2-grid">
-                        <div class="menu-card-v2" data-category="culinary">
-                            <div class="m-card-inner">
-                                <img src="assets/Pictures/culinary_gallery_1.png" alt="Grand Veg Thali">
-                                <div class="m-card-info">
-                                    <span class="m-card-label">Signature</span>
-                                    <h4>Grand Veg Thali</h4>
+                    
+                    <div class="contact-container">
+                        <form action="mailto:info@tableworth.in" method="GET" class="contact-form">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="name">Your Name</label>
+                                    <input type="text" id="name" name="name" placeholder="John Doe" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="company">Company Name</label>
+                                    <input type="text" id="company" name="company" placeholder="Acme Corp">
                                 </div>
                             </div>
-                        </div>
-                        <div class="menu-card-v2" data-category="culinary">
-                            <div class="m-card-inner">
-                                <img src="assets/Pictures/culinary_gallery_2.png" alt="Paneer Butter Masala">
-                                <div class="m-card-info">
-                                    <span class="m-card-label">Classic</span>
-                                    <h4>Paneer Butter Masala</h4>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="email">Email Address</label>
+                                    <input type="email" id="email" name="email" placeholder="john@example.com" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="phone">Phone Number</label>
+                                    <input type="tel" id="phone" name="phone" placeholder="+91 98765 43210" required>
                                 </div>
                             </div>
-                        </div>
-                        <div class="menu-card-v2" data-category="culinary">
-                            <div class="m-card-inner">
-                                <img src="assets/Pictures/culinary_gallery_3.png" alt="Veg Dum Biryani">
-                                <div class="m-card-info">
-                                    <span class="m-card-label">Celebration</span>
-                                    <h4>Veg Dum Biryani</h4>
-                                </div>
+                            <div class="form-group">
+                                <label for="subject">Subject</label>
+                                <input type="text" id="subject" name="subject" placeholder="What is your inquiry about?" required>
                             </div>
-                        </div>
-                        <div class="menu-card-v2" data-category="culinary">
-                            <div class="m-card-inner">
-                                <img src="assets/Pictures/culinary_gallery_4.png" alt="Dal & Naan">
-                                <div class="m-card-info">
-                                    <span class="m-card-label">Comfort</span>
-                                    <h4>Dal Makhani & Naan</h4>
-                                </div>
+                            <div class="form-group">
+                                <label for="body">Message</label>
+                                <textarea id="body" name="body" rows="5" placeholder="Tell us how we can help you..." required></textarea>
                             </div>
-                        </div>
-                        <div class="menu-card-v2" data-category="culinary">
-                            <div class="m-card-inner">
-                                <img src="assets/Pictures/culinary_gallery_5.png" alt="Indian Sweets">
-                                <div class="m-card-info">
-                                    <span class="m-card-label">Desserts</span>
-                                    <h4>Indian Mithai Spread</h4>
-                                </div>
-                            </div>
-                        </div>
+                            <button type="submit" class="btn-premium-v3" style="width: 100%; border-radius: 4px; font-size: 14px; padding: 20px;">Send Inquiry via Email</button>
+                        </form>
                     </div>
                 </div>
             </section>
@@ -427,14 +417,14 @@
             <div class="footer-top">
                 <div class="footer-brand">
                     <img src="assets/TAble-Worth.png" alt="Logo">
-                    <p style="color: var(--secondary); opacity: 0.7;">Defining hospitality excellence for over 30 years.</p>
+                    <p style="color: var(--secondary); opacity: 0.7;">Defining hospitality excellence for over 30 years.
+                    </p>
                 </div>
                 <div class="footer-links">
                     <div class="link-group">
                         <h5>Explore</h5>
                         <a href="#about" style="color: var(--text); opacity: 0.8; font-weight: 500;">Story</a>
                         <a href="#services" style="color: var(--text); opacity: 0.8; font-weight: 500;">Services</a>
-                        <a href="#menu" style="color: var(--text); opacity: 0.8; font-weight: 500;">Menu</a>
                     </div>
                     <div class="link-group">
                         <h5>Connect</h5>

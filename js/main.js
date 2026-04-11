@@ -84,22 +84,32 @@ document.addEventListener('DOMContentLoaded', () => {
         revealEls.forEach(el => observer.observe(el));
     }
 
-    // --- Stagger service cards ---
-    document.querySelectorAll('.service-v2-card').forEach((card, i) => {
+    // --- Stagger reveal elements across the site ---
+    const staggerSelectors = [
+        '.service-v2-card', 
+        '.philo-card', 
+        '.t-step', 
+        '.cert-item', 
+        '.v-card',
+        '.contact-container'
+    ];
+    
+    document.querySelectorAll(staggerSelectors.join(', ')).forEach((card, i) => {
         card.classList.add('reveal');
-        card.style.transitionDelay = `${i * 0.08}s`;
+        // Calculate a local delay simply to keep staggered look but not wait forever
+        card.style.transitionDelay = `${(i % 5) * 0.1}s`;
     });
 
-    // Re-observe service cards since we just added the class
-    const serviceObserver = new IntersectionObserver((entries) => {
+    // Re-observe since we just added the class
+    const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.classList.add('visible');
-                serviceObserver.unobserve(entry.target);
+                observer.unobserve(entry.target);
             }
         });
     }, { threshold: 0.1 });
-    document.querySelectorAll('.service-v2-card').forEach(el => serviceObserver.observe(el));
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
     // --- Stat counter animation ---
     const animateValue = (el, start, end, duration) => {
