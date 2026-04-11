@@ -1098,37 +1098,53 @@ section[id] {
     font-size: 2.5rem;
 }
 
-.clients-vertical-list {
+.vertical-loop-container {
+    width: 100%;
+    margin: 40px auto;
+}
+
+.vertical-loop-track {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    animation: scroll-vertical 50s linear infinite;
     gap: 30px;
-    padding: 60px 0;
+}
+
+.loop-group {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    align-items: center;
 }
 
 .client-item {
     font-family: var(--font-heading);
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     color: var(--white);
-    letter-spacing: 1px;
+    letter-spacing: 0.5px;
+    text-align: center;
     transition: var(--transition);
 }
 
 @media (min-width: 768px) {
     .client-item {
-        font-size: 2.2rem;
+        font-size: 1.8rem;
     }
 }
 
 @media (min-width: 1024px) {
     .client-item {
-        font-size: 2.4rem;
+        font-size: 2.1rem;
     }
     .client-item:hover {
         color: var(--accent);
-        transform: scale(1.05);
         cursor: default;
     }
+}
+
+@keyframes scroll-vertical {
+    from { transform: translateY(0); }
+    to { transform: translateY(calc(-50% - 15px)); }
 }
 
 /* --- MOBILE TOGGLE FIX --- */
