@@ -1098,53 +1098,37 @@ section[id] {
     font-size: 2.5rem;
 }
 
-.marquee-v2 {
+.clients-vertical-list {
     display: flex;
-    overflow: hidden;
-    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    padding: 60px 0;
 }
 
-.marquee-content {
-    display: flex;
-    white-space: nowrap;
-    animation: marquee 30s linear infinite;
-    gap: 20px;
-}
-
-.marquee-content span {
+.client-item {
     font-family: var(--font-heading);
     font-size: 1.5rem;
     color: var(--white);
-    opacity: 1;
-    padding: 20px 0;
-    display: block;
     letter-spacing: 1px;
+    transition: var(--transition);
 }
 
 @media (min-width: 768px) {
-    .marquee-content span {
+    .client-item {
         font-size: 2.2rem;
-    }
-    .marquee-content {
-        gap: 40px;
     }
 }
 
 @media (min-width: 1024px) {
-    .marquee-content span {
+    .client-item {
         font-size: 2.4rem;
-        opacity: 1;
     }
-    .marquee-content span:hover {
+    .client-item:hover {
         color: var(--accent);
-        text-shadow: 0 0 30px rgba(194, 65, 12, 0.4);
+        transform: scale(1.05);
         cursor: default;
     }
-}
-
-@keyframes marquee {
-    from { transform: translateX(0); }
-    to { transform: translateX(-100%); }
 }
 
 /* --- MOBILE TOGGLE FIX --- */
@@ -1494,5 +1478,46 @@ model-viewer {
     .form-row {
         flex-direction: column;
         gap: 15px; /* Use vertical gap instead of horizontal when stacked */
+    }
+}
+
+/* --- GALLERY SECTION --- */
+.photo-gallery {
+    padding: 80px 0;
+    background: #111;
+}
+
+.photo-gallery .section-heading {
+    color: #fff;
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 30px;
+}
+
+.g-img-wrap {
+    width: 100%;
+    height: 350px;
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+.g-img-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.8s ease;
+}
+
+.g-img-wrap:hover img {
+    transform: scale(1.1);
+}
+
+@media (min-width: 768px) {
+    .gallery-grid {
+        grid-template-columns: repeat(3, 1fr);
     }
 }
