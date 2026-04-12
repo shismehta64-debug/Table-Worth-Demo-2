@@ -86,14 +86,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // --- Stagger reveal elements across the site ---
     const staggerSelectors = [
-        '.service-v2-card', 
-        '.philo-card', 
-        '.t-step', 
-        '.cert-item', 
+        '.service-v2-card',
+        '.philo-card',
+        '.t-step',
+        '.cert-item',
         '.v-card',
         '.contact-container'
     ];
-    
+
     document.querySelectorAll(staggerSelectors.join(', ')).forEach((card, i) => {
         card.classList.add('reveal');
         // Calculate a local delay simply to keep staggered look but not wait forever
@@ -138,5 +138,45 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }, { threshold: 0.5 });
     counters.forEach(el => counterObserver.observe(el));
+
+    // --- EmailJS Contact Form Handler ---
+    const contactForm = document.getElementById('contact-form');
+    if (contactForm) {
+        // You MUST replace 'YOUR_PUBLIC_KEY_HERE' with your actual public key from the EmailJS dashboard
+        emailjs.init("_uDDxsjkpBFsLNtwu");
+
+        contactForm.addEventListener('submit', function (e) {
+            e.preventDefault();
+            const btn = contactForm.querySelector('button[type="submit"]');
+            const originalText = btn.textContent;
+            btn.textContent = 'Sending...';
+            btn.style.opacity = '0.7';
+            btn.disabled = true;
+
+            // You MUST replace YOUR_SERVICE_ID and YOUR_TEMPLATE_ID with actual keys
+            emailjs.sendForm('service_b0ux1dm', 'template_u0trm58', this)
+                .then(function () {
+                    btn.textContent = 'Message Sent Successfully!';
+                    btn.style.background = '#10B981'; // Premium success green
+                    contactForm.reset();
+                    setTimeout(() => {
+                        btn.textContent = originalText;
+                        btn.style.background = '';
+                        btn.style.opacity = '1';
+                        btn.disabled = false;
+                    }, 4000);
+                }, function (error) {
+                    console.error('Email failed to send...', error);
+                    btn.textContent = 'Failed. Contact Support.';
+                    btn.style.background = '#EF4444'; // Premium error red
+                    setTimeout(() => {
+                        btn.textContent = originalText;
+                        btn.style.background = '';
+                        btn.style.opacity = '1';
+                        btn.disabled = false;
+                    }, 4000);
+                });
+        });
+    }
 
 });

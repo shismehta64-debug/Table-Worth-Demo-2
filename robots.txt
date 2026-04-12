@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+
+# Disallow crawling of administrative or private directories if they existed
+# Disallow: /private/
+# Disallow: /admin/
+
+# Point search engine crawlers to the sitemap
+Sitemap: https://tableworth.in/sitemap.xml
